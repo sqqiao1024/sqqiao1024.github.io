@@ -9,7 +9,7 @@
     
     <title>
         
-            接下来的博客内容 |
+            利用HEXO搭建个人博客并托管到GitHub上 |
         
         My Blog
     </title>
@@ -116,7 +116,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">接下来的博客内容</span>
+            <span class="title-hover-animation">利用HEXO搭建个人博客并托管到GitHub上</span>
         </div>
 
         
@@ -134,9 +134,20 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-03 09:06:54
+        <i class="fas fa-edit"></i>&nbsp;2021-08-04 13:23:22
     </span>
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%88%86%E4%BA%AB/">分享</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -151,9 +162,99 @@
         
 
         <div class="article-content markdown-body">
-            <p>花了一天时间，跟着网上的教程，总算把自己的博客搭起来了。接下来的一段时间里会把自己搭建博客的过程经历写下来以供参考。</p>
-<p>因为自己是按照傻瓜式的教程一步一步跟着搭建的，所以很多深层次的内容也不是很明白，以后也会边学习边分享。</p>
-<p>There are so many things to learn.</p>
+            <p>网上此类教程很多，我也是跟着教程一步一步搭建的，这里分享下我个人的搭建过程以供参考。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="1-注册个人GitHub账号"><a href="#1-注册个人GitHub账号" class="headerlink" title="1. 注册个人GitHub账号"></a>1. 注册个人GitHub账号</h3><p>要注意Username的填写，最后建立的博客地址是:username.github.io</p>
+<h3 id="2-安装Node-js和Git"><a href="#2-安装Node-js和Git" class="headerlink" title="2. 安装Node.js和Git"></a>2. 安装Node.js和Git</h3><h2 id="正式开始"><a href="#正式开始" class="headerlink" title="正式开始"></a>正式开始</h2><h3 id="1-登录个人GitHub并创建Repository"><a href="#1-登录个人GitHub并创建Repository" class="headerlink" title="1. 登录个人GitHub并创建Repository"></a>1. 登录个人GitHub并创建Repository</h3><p>Repository name 应填写为:username.github.io(username 换成自己注册时的)<br><img src="https://i.loli.net/2021/08/04/iAspy8GWduP6Kv5.jpg" alt="创建Repository"></p>
+<h3 id="2-配置和使用GitHub"><a href="#2-配置和使用GitHub" class="headerlink" title="2. 配置和使用GitHub"></a>2. 配置和使用GitHub</h3><p>在开始菜单中找到Git bash并打开</p>
+<p><img src="https://i.loli.net/2021/08/04/HCEoem5nPzDK4Oc.png" alt="GitBash"></p>
+<p>生成新的SSH Key：</p>
+<blockquote>
+<p>$ ssh-keygen -t rsa -C “邮件地址@youremail.com”</p>
+</blockquote>
+<blockquote>
+<p>Generating public/private rsa key pair.</p>
+</blockquote>
+<blockquote>
+<p>Enter file in which to save the key (/Users/your_user_directory/.ssh/id_rsa):&lt;回车就好&gt;</p>
+</blockquote>
+<p>注意邮箱地址，填写注册GitHub时的邮箱。然后系统会要你设置密码：</p>
+<blockquote>
+<p>Enter passphrase (empty for no passphrase):&lt;设置密码&gt;</p>
+</blockquote>
+<blockquote>
+<p>Enter same passphrase again:&lt;再次输入密码&gt;</p>
+</blockquote>
+<p>这里输入密码是不显示的，不要以为是卡了，正常输入就行。最后看到这样的界面就成功设置SSH key了</p>
+<p><img src="https://i.loli.net/2021/08/04/pFOrvf7HDEAIgZ4.png" alt="SSH Key"></p>
+<p><strong>添加SSH Key到GitHub</strong></p>
+<p>当完成上述步骤可以在本地文件夹找到id_rsa.pub文件，位置一般在用户文档里面的.ssh里面，具体位置可以参照上图成功设置SSH key时界面第四行。（如果找不到记得打开文件隐藏项目，同时也把文件扩展名勾上）</p>
+<p><img src="https://i.loli.net/2021/08/04/mUHSkPxJaIw8Kqi.png" alt="文件扩展名+隐藏的项目"></p>
+<p>用记事本打开id_rsa.pub并复制里面的内容，再打开你的GitHub主页，点击头像后箭头-Settings-SSH and GPG keys-New SSH key</p>
+<p>将刚刚复制的内容粘贴到Key里面，Title可以随便填写</p>
+<p><img src="https://i.loli.net/2021/08/04/rIwxNzaEbFuJ4cg.png" alt="New SSH key"></p>
+<p><strong>测试一下</strong></p>
+<p>打开git bash输入以下代码</p>
+<blockquote>
+<p>$ ssh -T <a class="link"   href="mailto:&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;" >&#x67;&#x69;&#x74;&#64;&#x67;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#99;&#111;&#x6d;<i class="fas fa-external-link-alt"></i></a></p>
+</blockquote>
+<p>如果得到以下反馈</p>
+<blockquote>
+<p>The authenticity of host ‘GitHub.com (207.97.227.239)’ can’t be established.<br>RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.<br>Are you sure you want to continue connecting (yes/no)</p>
+</blockquote>
+<p>输入yes回车</p>
+<blockquote>
+<p>Enter passphrase for key ‘/c/Users/lenovo/.ssh/id_rsa’:</p>
+</blockquote>
+<p>输入刚才设置的密码回车</p>
+<p>现在已经可以通过SSH链接到GitHub了！最后再完善下个人信息</p>
+<blockquote>
+<p>$ git config –global user.name “sqqiao1024”//输入注册时的username</p>
+</blockquote>
+<blockquote>
+<p>$ git config –global user.email  “<a class="link"   href="mailto:&#115;&#113;&#x71;&#105;&#x61;&#111;&#x31;&#x30;&#x32;&#52;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;" >&#115;&#113;&#x71;&#105;&#x61;&#111;&#x31;&#x30;&#x32;&#52;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a>“//填写注册邮箱</p>
+</blockquote>
+<h3 id="3-搭建Hexo博客"><a href="#3-搭建Hexo博客" class="headerlink" title="3. 搭建Hexo博客"></a>3. 搭建Hexo博客</h3><p><strong>利用npm命令安装hexo</strong></p>
+<blockquote>
+<p>$ cd</p>
+</blockquote>
+<blockquote>
+<p>$ npm install -g hexo</p>
+</blockquote>
+<p>注意这里运行之后可能会一直卡光标，需要更换安装源，具体更换方法可以查看下篇博客。</p>
+<p><strong>创建独立博客项目文件夹</strong></p>
+<p>安装完成之后，关掉Git Bash窗口，在本地创建一个与Repository中博客项目同名的文件夹（如D:\username.github.io），在文件夹上右击选择Git bash here，记得以后每次进行博客搭建工作时，都要在这个目录文件上打开Git bash。</p>
+<p>下面依次执行以下指令</p>
+<blockquote>
+<p>$ hexo init</p>
+</blockquote>
+<blockquote>
+<p>$ npm install</p>
+</blockquote>
+<blockquote>
+<p>$ npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>现在就已经搭建好本地的Hexo博客了，执行完以下命令就可以到浏览器输入localhost：4000查看了</p>
+<blockquote>
+<p>$ hexo g</p>
+</blockquote>
+<blockquote>
+<p>$ hexo s</p>
+</blockquote>
+<p>注意以后每次进行本地博客改动都要hexo g生成一下</p>
+<h3 id="4-将博客部署到GitHub"><a href="#4-将博客部署到GitHub" class="headerlink" title="4. 将博客部署到GitHub"></a>4. 将博客部署到GitHub</h3><p>进入GitHub个人主页中的Repository，复制新建的独立博客项目：username.github.io的SSH码</p>
+<p><img src="https://i.loli.net/2021/08/04/SRMIVquXwr4hc7L.png" alt="SSH码"></p>
+<p>打开你刚建的username.github.io本地文件夹，找到_config.yml文件并打开，把刚刚复制的SSH码粘贴到“repository：”后面</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:username/username.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>接下来右击username.github.io文件夹打开Git bash here<br>执行以下指令完成部署</p>
+<blockquote>
+<p>$ hexo g</p>
+</blockquote>
+<blockquote>
+<p>$ hexo d</p>
+</blockquote>
+<p>注意该过程可能需要输入密码，就是你前面设置的密码</p>
+<p>最后用浏览器打开username.github.io如果能正常进入，那么就代表博客已经搭建好了！</p>
+<p>至此博客搭建过程就结束了！</p>
 
         </div>
 
@@ -162,29 +263,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/08/04/%E5%88%A9%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E6%89%98%E7%AE%A1%E5%88%B0GitHub%E4%B8%8A/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">利用HEXO搭建个人博客并托管到GitHub上</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/08/02/test/"
+                           href="/2021/08/03/%E6%8E%A5%E4%B8%8B%E6%9D%A5%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%86%85%E5%AE%B9/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">test</span>
+                                <span class="post-nav-title-item">接下来的博客内容</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
