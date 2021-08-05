@@ -9,7 +9,7 @@
     
     <title>
         
-            修改npm源 |
+            无法访问GitHub的简单解决方法 |
         
         My Blog
     </title>
@@ -116,7 +116,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">修改npm源</span>
+            <span class="title-hover-animation">无法访问GitHub的简单解决方法</span>
         </div>
 
         
@@ -134,7 +134,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-08-04 21:53:07
+        <i class="fas fa-edit"></i>&nbsp;2021-08-05 09:03:20
     </span>
     
     
@@ -162,22 +162,27 @@
         
 
         <div class="article-content markdown-body">
-            <p>在上篇博文中分享了本博客的搭建过程，在搭建过程中难免遇到各种问题，其中在利用npm命令安装hexo时会卡光标，利用搜索引擎一番了解后，现将解决方法分享一下。</p>
-<p>因为网络原因，访问外部npm源不太顺畅，这里可以切换为国内的npm源，比较有名的就是淘宝npm镜像。</p>
-<h3 id="1-临时使用"><a href="#1-临时使用" class="headerlink" title="1. 临时使用"></a>1. 临时使用</h3><p>在 npm install XXX 时加入 –registry URL 即可，不会影响到本地配置，如：</p>
+            <p>由于众所周知的网络原因，在国内访问GitHub会时不时出现抽风打不开的情况，现提供一个简单的解决方法。<br>原理就是修改本地hosts文件，绕过DNS服务器直接访问GitHub。</p>
+<p>首先我们要打开一个网站</p>
 <blockquote>
-<p>npm –registry <a class="link"   target="_blank" rel="noopener" href="https://registry.npm.taobao.org/" >https://registry.npm.taobao.org<i class="fas fa-external-link-alt"></i></a> install express</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com.ipaddress.com/www.github.com" >https://github.com.ipaddress.com/www.github.com<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
-<p>注意：上面应该是两个“–”，上传到博客上不知道怎么变成一个了，以后会专门研究下。</p>
-<h3 id="2-持久使用"><a href="#2-持久使用" class="headerlink" title="2. 持久使用"></a>2. 持久使用</h3><p>永久修改本地npm的配置：</p>
+<p><img src="https://i.loli.net/2021/08/05/ZMh3v5AOwjitIkg.png" alt="IP地址"><br>该网站会实时更新GitHub的IP地址，注意每隔一段时间都会变，所以这只是一个临时的解决方法，当然也有大佬写的自动同步修改的程序，感兴趣的可以找下。</p>
+<p>接下来我们就要找到本地hosts文件，具体路径如下，在修改之前可以先备份一下hosts文件</p>
 <blockquote>
-<p>npm config set registry <a class="link"   target="_blank" rel="noopener" href="https://registry.npm.taobao.org/" >https://registry.npm.taobao.org<i class="fas fa-external-link-alt"></i></a></p>
+<p>C:\Windows\System32\drivers\etc</p>
 </blockquote>
-<h3 id="3-其他命令"><a href="#3-其他命令" class="headerlink" title="3. 其他命令"></a>3. 其他命令</h3><p>查看npm源地址有没有换成功：</p>
+<p>用记事本打开hosts文件，在最后一行添加如下内容</p>
 <blockquote>
-<p>npm config get registry<br>重置为官方源：<br>npm config set registry <a class="link"   target="_blank" rel="noopener" href="https://registry.npmjs.org/" >https://registry.npmjs.org/<i class="fas fa-external-link-alt"></i></a></p>
+<p>140.82.112.4 github.com （前面的IP地址是随时更换的，要替换成前面网站查询到的IP地址）</p>
 </blockquote>
-<h3 id="以上。"><a href="#以上。" class="headerlink" title="以上。"></a>以上。</h3>
+<p><img src="https://i.loli.net/2021/08/05/vWhcgBdUJnykHSQ.png" alt="hosts文件"><br>然后保存，如果提示没有权限，可以先保存到桌面上然后再拉进去替换掉</p>
+<p>至此应该就可以打开GitHub了。</p>
+<p>最后注意：</p>
+<ul>
+<li>修改hosts文件时一定要注意文件扩展名，hosts文件是没有扩展名的，修改保存时容易保存为txt文件，这样是不生效的。</li>
+</ul>
+
         </div>
 
         
@@ -185,29 +190,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2021/08/05/%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AEGitHub%E7%9A%84%E7%AE%80%E5%8D%95%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">无法访问GitHub的简单解决方法</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/08/04/%E5%88%A9%E7%94%A8HEXO%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%B9%B6%E6%89%98%E7%AE%A1%E5%88%B0GitHub%E4%B8%8A/"
+                           href="/2021/08/04/%E4%BF%AE%E6%94%B9npm%E6%BA%90/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">利用HEXO搭建个人博客并托管到GitHub上</span>
+                                <span class="post-nav-title-item">修改npm源</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
